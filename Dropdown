@@ -71,3 +71,24 @@
     
   }
   
+  <!-- Sidebar CSS -->
+  /*--------------------------------------------------------------
+  # Tab Heading
+  --------------------------------------------------------------*/ 
+
+  .tab-heading{
+    position: relative;
+    top: 27px;  
+    z-index: 999;
+    width: max-content;
+    display: block;  
+    padding-left: 5px;
+    .mat-chip.mat-standard-chip    {
+      background: $bg-transparent;
+      margin: 0px;
+    }  
+    .mat-icon{
+      color:$bg-darkgray-5;
+      
+    }   
+  }
