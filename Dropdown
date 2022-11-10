@@ -44,3 +44,30 @@
         <!-- Ts File -->
         selectedProject = 'option1';
   selectedPeriod = 'option1';
+
+
+<!-- CSS -->
+ /*--------------------------------------------------------------
+  # Select
+  --------------------------------------------------------------*/  
+  .dropdown-section{
+    label{
+      width:40%;
+    }
+    .mat-form-field{
+      width:60%;
+    .mat-form-field-flex{
+        padding: 0 0.75em 0 0.75em !important;
+        border-radius: $border-radius-5;
+        background: $bg-lightblue-5;
+        .mat-select-value-text{
+          color:$bg-themeblue;
+        }
+      }
+      .mat-form-field-underline{
+        display: $none;
+      }
+    }
+    
+  }
+  
