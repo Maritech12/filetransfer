@@ -1,0 +1,46 @@
+<!-- Dropdown Section Starts --> 
+        <div fxLayout="row wrap">
+          <div fxFlex.gt-lg="50" fxFlex.gt-md="50" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+            <h6>Dashboard</h6>
+          </div>
+          <div fxFlex.gt-lg="50" fxFlex.gt-md="50" fxFlex.gt-sm="100" fxFlex.gt-xs="100" class="dropdown-section">
+
+            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" [style.marginRight.px]="20" >             
+              <!-- Select Dropdown/Project Selection Starts -->               
+              <label>Project</label>
+              <mat-form-field appearance="fill" [style.paddingTop.px]="0">
+                <mat-select [(value)]="selectedProject">
+                  <mat-option value="option1">All</mat-option>
+                  <mat-option value="option2">Project 1</mat-option>
+                  <mat-option value="option3">Project 2</mat-option>
+                </mat-select>
+              </mat-form-field>             
+              <!-- Select Dropdown/Project Selection   Ends --> 
+           </div>
+           <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100">
+         
+            <!-- Select Dropdown/Period Selection Starts -->                           
+            <label>Select Period</label>
+            <mat-form-field appearance="fill" [style.paddingTop.px]="0">
+              <mat-select [(value)]="selectedPeriod">
+                <mat-option value="option1">Last 24 Hours</mat-option>
+                <mat-option value="option2">30 Days</mat-option>
+                <mat-option value="option3">60 Days</mat-option>
+                <mat-option value="option3">90 Days</mat-option>
+                <mat-option value="option3">Last 6 Months</mat-option>
+                <mat-option value="option3">Last 1 Year</mat-option>
+                <mat-option value="option3">All</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- Select Dropdown/Period Selection Ends --> 
+            </div>
+          
+      
+      </div>
+        </div>
+        <!-- Dropdown Section Ends --> 
+        
+        
+        <!-- Ts File -->
+        selectedProject = 'option1';
+  selectedPeriod = 'option1';
