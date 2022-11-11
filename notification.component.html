@@ -1,0 +1,26 @@
+<mat-icon mat-icon-button [matMenuTriggerFor]="menu" mat-raised-button color="primary" [matBadge]="notificationElement.length"
+    matBadgePosition="after" matBadgeColor="accent">notifications_none</mat-icon>
+    
+<mat-menu #menu="matMenu" class="notifications">
+    <mat-card>
+        <mat-card-actions>
+            <div> <h6 [textContent]="notificationMessage"></h6> </div>
+            <div><small> Receive Notification</small> <mat-slide-toggle [disabled]="true"></mat-slide-toggle></div> 
+        </mat-card-actions>
+        <mat-divider></mat-divider>
+        <div *ngFor="let item of notificationElement">
+            <mat-card-header>
+                <div mat-card-avatar>
+                    <mat-icon>circle</mat-icon>
+                </div>
+                <mat-card-title [innerHtml]="item.title" ></mat-card-title>
+                <mat-card-subtitle [textContent]="item.subTitle"></mat-card-subtitle>
+            </mat-card-header>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <a mat-list-item routerLink="." [textContent]="notificationContent"></a>
+        </mat-card-actions>
+    </mat-card>
+
+</mat-menu>
