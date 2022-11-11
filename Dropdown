@@ -1,6 +1,13 @@
 <h5>Organization</h5>
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+{
+      "title": "Shiba Inu",
+      "subTitle": "Dog Breed"
+    },
+    {
+      "title": "Shiba",
+      "subTitle": "Cat"
+    }
 
 <!-- Dropdown Section Starts --> 
         <div fxLayout="row wrap">
