@@ -1,4 +1,6 @@
 <h5>Organization</h5>
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 <!-- Dropdown Section Starts --> 
         <div fxLayout="row wrap">
