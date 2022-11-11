@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+
+$bg-black: #000000;
+$bg-white: #ffffff;
+$bg-orange: #Ec8f22;
+$bg-yellow :#ffc000;
+$bg-themeblue: #446cb8;
+$bg-themebluelight: #ebecfe;
+$bg-lightblue: #EBECFE;
+$bg-lightblue-5: #deeff1;
+$bg-lightgray-5: #d9d9d9;
+$bg-lightgray: #f5f3f3;
+$bg-darkgray: #4c4c4c;
+$bg-darkgray-5: #888888;
+$bg-aqua:#b4fdef;
+$bg-transparent: transparent;
+
+$border-none: none;
+$border-radius-0: 0px;
+$border-radius-5: 5px;
+$border-radius-10: 10px;
+
+$font-weight-700: 700;
+$font-weight-600: 600;
+$font-weight-500: 500;
+$font-weight-400: 400;
+
+$font-size-10: 0.625rem;
+$font-size-11: 0.6875rem;
+$font-size-12: 0.75rem;
+$font-size-14: 0.875rem;
+$font-size-16: 1rem;
+$font-size-18: 1.125rem;
+$font-size-20: 1.25rem;
+$font-size-30:1.875rem;
+$font-size-22:1.375rem;
+$font-size-24:1.5rem;
+$font-size-26:1.575rem;
+$font-size-30:1.875rem;
+$font-size-40:2.5rem;
+
+$underline: underline;
+$underline-none: none;
+
+$relative: relative;
+$absolute: absolute;
+$fixed: fixed;
+$none: none;
+$block: block;
+
+$pointer: pointer;
+$uppercase: uppercase;
+
+
+/*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  .header {
+      app-notification{
+        color:  $bg-themeblue;
+        padding:0px 15px;
+        position: $relative;
+        height: 20px;
+      } 
+      app-user{
+        color:  $bg-themeblue;
+        height: 20px;
+      } 
+      mat-icon{color:  $bg-themeblue;}
+    }
+    .logo {
+      line-height: 1;
+      img {
+          max-height: 50px;
+          margin: 0px auto 0px 0px;
+          display: grid;
+        }
+        span {
+          font-size: 26px;
+          font-weight: $font-weight-700;
+          color: $bg-themeblue;
+        }
+    }
+    @media (min-width: 1200px) {
+    .logo {
+      width: 250px;
+    }
+    }
+  
