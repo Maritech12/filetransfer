@@ -1,0 +1,15 @@
+.backup-page{
+  margin: 0px !important;
+  background: #ffffff;
+}
+
+.restore-page{
+  margin: 0px !important;
+  background: #ffffff;
+}
+
+
+.dashboard-page{
+    margin: 0px !important;
+    background: #ffffff;
+}
