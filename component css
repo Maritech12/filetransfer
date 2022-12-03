@@ -13,3 +13,11 @@
     margin: 0px !important;
     background: #ffffff;
 }
+
+<mat-grid-list cols="4" rowHeight="20px">
+    <mat-grid-tile>
+    <mat-checkbox (click)="isCheckedSchedule=!isCheckedSchedule;toggle()" color="primary">Schedule Backup</mat-checkbox>
+    </mat-grid-tile>
+  </mat-grid-list> 
+ 
+  <div [hidden]="isHidden" class="control-sm">
