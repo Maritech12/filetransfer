@@ -21,3 +21,29 @@
   </mat-grid-list> 
  
   <div [hidden]="isHidden" class="control-sm">
+  
+  
+  
+  -----------
+  Error
+  -----------
+  apps_ado-vault_login_src_bootstrap_ts.js | bootstrap |  36.05 kB |
+
+105 unchanged chunks
+
+Build at: 2022-12-05T05:15:22.442Z - Hash: 8e6446adda75ed77 - Time: 1339ms
+
+√ Compiled successfully.
+C:\Users\GVMK\OneDrive - clarksons.com\Project\Maritech\Maritech Web\Front_End\ADO-BCP-UI\node_modules\webpack\lib\serialization\FileMiddleware.js:247
+                contentItemLength = contentItem.length;
+                                                ^
+
+TypeError: Cannot read properties of undefined (reading 'length')
+    at nextContent (C:\Users\GVMK\OneDrive - clarksons.com\Project\Maritech\Maritech Web\Front_End\ADO-BCP-UI\node_modules\webpack\lib\serialization\FileMiddleware.js:247:35)
+    at deserialize (C:\Users\GVMK\OneDrive - clarksons.com\Project\Maritech\Maritech Web\Front_End\ADO-BCP-UI\node_modules\webpack\lib\serialization\FileMiddleware.js:342:5)
+
+Node.js v18.12.0
+
+ —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ >  NX   Running target "ado-vault.login:serve" failed
