@@ -1,0 +1,79 @@
+<mat-card class="popoverList">
+                <div fxLayout="row wrap">
+                <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+                    <div>title</div>
+                </div>  
+                <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="content">
+                     
+                     <div class="stepper">   
+                         <!-- Completed Step Starts-->  
+                         <!-- <div class="step completed active empty"> Three states we can call by using (completed, active, empty)     -->
+                        <div class="step completed">
+                          <div class="v-stepper"> 
+                            <div class="circle"></div>
+                            <div class="line"></div>
+                          </div>              
+                          <div class="message-content">                        
+                                  <div class="message-heading">
+                                    <div class="title"></div>
+                                    <div class="right-message">
+                                      <div fxLayout="row wrap">                                 
+            
+                                          <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="title">
+                                              <div>subheading</div>
+                                           </div>
+                                           <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                                            <div>leftMessage</div>
+                                         </div>
+                                         <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                                            <div>rightMessage</div>
+                                         </div>
+                                         <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                                            <div>leftMessage</div>
+                                         </div>
+                                         <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                                            <div>rightMessage</div>
+                                         </div>
+                                    </div>
+                                    </div>
+                                  </div>
+                          </div>
+                      </div>
+                      
+                      <div class="step active">
+                      <div class="v-stepper"> 
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                      </div>              
+                      <div class="message-content">                        
+                              <div class="message-heading">
+                                <div class="title"></div>
+                                <div class="right-message">
+                                  <div fxLayout="row wrap">                                 
+        
+                                      <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="title">
+                                          <div>subheading</div>
+                                       </div>
+                                       <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                                        <div>leftMessage</div>
+                                     </div>
+                                     <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                                        <div>rightMessage</div>
+                                     </div>
+                                     <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                                        <div>leftMessage</div>
+                                     </div>
+                                     <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                                        <div>rightMessage</div>
+                                     </div>
+                                </div>
+                                </div>
+                              </div>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+                
+               
+                </div>
+            </mat-card> 
