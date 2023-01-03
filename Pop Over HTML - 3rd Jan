@@ -1,0 +1,265 @@
+<mat-card class="popoverList" (click)="$event.stopPropagation(); ">
+  <h5 *ngIf="popOverDetails!='' ">View Backup - {{popOverDetails[0].status}} Data </h5>
+
+  <div fxLayout="row wrap" *ngFor="let contentItem of popOverDetails">
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[0].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[0].key]"></div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[1].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[1].key]"></div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[2].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+
+      <div class="title" *ngIf="contentItem[columnHeaderDetails[2].key] != '' "
+        [textContent]="contentItem[columnHeaderDetails[2].key]">
+      </div>
+      <div class="title" *ngIf="contentItem[columnHeaderDetails[2].key] == '' "
+        [textContent]="contentItem.transactionTaskDetails[0].startDate | date: 'dd-MM-yyyy hh:mm'">
+      </div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[3].title"></div>
+    </div>
+
+    <!--- Activity Log Details--->
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[3].key]"></div>
+      <div class="stepper">
+        <div
+          *ngFor="let transactionTaskDetails of contentItem.transactionTaskDetails ; let i= index; let lastIndex = last;">
+          <mat-card class="step completed" [ngClass]="{'completed' : transactionTaskDetails.endDate != null,
+            'failed' : transactionTaskDetails.endDate == null && popOverDetails[0].status == 'Failed'
+            ,'active' : transactionTaskDetails.endDate == null && popOverDetails[0].status == 'Running'}">
+            <mat-card-header class="v-stepper">
+              <mat-icon class="circle"></mat-icon>
+              <div class="line"></div>
+              <mat-progress-spinner [value]="35" class="progress-spinner"></mat-progress-spinner>
+            </mat-card-header>
+            <mat-card-header class="message-content">
+              <div class="message-heading">
+                <div class="title" [textContent]="contentItem[columnHeaderDetails[3].key]"></div>
+                <div fxLayout="row wrap">
+                  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                    <mat-card-title class="title"
+                      [textContent]="contentItem[columnHeaderDetails[3].key]"></mat-card-title>
+                  </div>
+
+                  <div class="message-content">
+                    <div class="message-heading">
+                      <div class="title"></div>
+                      <div class="right-message">
+                        <div fxLayout="row wrap">
+
+                          <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="title">
+                            <div [textContent]="transactionTaskDetails.taskName"></div>
+                          </div>
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                            <div>Service Bus Name</div>
+                          </div>
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                            <div [textContent]="transactionTaskDetails.componentName"></div>
+                          </div>
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                            <div>Start Date & Time</div>
+                          </div>
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                            <div [textContent]="transactionTaskDetails.startDate | date: 'dd-MM-yyyy hh:mm'"></div>
+                          </div>
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="left">
+                            <div>End Date & Time</div>
+                          </div>
+                          <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                            <div [textContent]="transactionTaskDetails.endDate | date: 'dd-MM-yyyy hh:mm'"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-header>
+          </mat-card>
+
+
+          <div *ngIf="lastIndex">
+            <mat-card class="step completed" [ngClass]="{'completed' : popOverDetails[0].status == 'Successful',
+              'failed' : popOverDetails[0].status == 'Failed',
+             'active' : popOverDetails[0].status == 'Running'}">
+              <mat-card-header class="v-stepper">
+                <mat-icon class="circle"></mat-icon>
+                <mat-progress-spinner [value]="35" class="progress-spinner"></mat-progress-spinner>
+              </mat-card-header>
+              <mat-card-header class="message-content" [style.paddingLeft.px]="0">
+                <div class="message-heading">
+                  <div class="title"></div>
+                  <div fxLayout="row wrap">
+                    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                      <mat-card-title class="title">Backup Completed At</mat-card-title>
+                    </div>
+                    <div class="message-content">
+                      <div class="message-heading">
+                        <div class="title"></div>
+                        <div class="right-message">
+                          <div fxLayout="row wrap">
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="right">
+                              <div [textContent]="transactionTaskDetails.endDate | date: 'dd-MM-yyyy hh:mm'"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-header>
+            </mat-card>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--- End --->
+
+    <!--- Sucess Column Details --->
+
+    <div *ngIf="popOverDetails[0].status == 'Successful' " fxFlex="100" class="dis-contents">
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[4].title"></div>
+      </div>
+
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div class="title" [textContent]="contentItem[columnHeaderDetails[4].key]"></div>
+      </div>
+    </div>
+    <!--- End --->
+
+    <!--- Running Column Details --->
+
+    <div *ngIf="popOverDetails[0].status == 'Running' " fxFlex="100" class="dis-contents">
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[11].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div *ngIf="contentItem[columnHeaderDetails[11].key] != null" class="title"
+          [textContent]="contentItem[columnHeaderDetails[11].key]+'%'"></div>
+        <mat-progress-bar *ngIf="contentItem[columnHeaderDetails[11].key] != null" mode="determinate"
+          [value]="contentItem[columnHeaderDetails[11].key]"></mat-progress-bar>
+      </div>
+    </div>
+    <!--- End --->
+
+
+    <!--- Failed Column Details --->
+    <div *ngIf="popOverDetails[0].status == 'Failed'" fxFlex="100" class="dis-contents">
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[5].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div class="title" [textContent]="contentItem[columnHeaderDetails[5].key]"></div>
+      </div>
+
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[6].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div class="title" [textContent]="contentItem[columnHeaderDetails[6].key]"></div>
+      </div>
+
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[7].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div class="title" [textContent]="contentItem[columnHeaderDetails[7].key]"></div>
+      </div>
+
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[8].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div class="title" [textContent]="contentItem[columnHeaderDetails[8].key]"></div>
+      </div>
+
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[9].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div class="title" [textContent]="contentItem[columnHeaderDetails[9].key]"></div>
+      </div>
+
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[10].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <a [href]="contentItem[columnHeaderDetails[10].key]" target="_blank" class="link">Stack Trace</a>
+      </div>
+    </div>
+    <!--- End --->
+
+    <!--- Default Column of Success,Failure and Running Details --->
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[12].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem.transactionTaskDetails[0].startDate | date: 'dd-MM-yyyy hh:mm'">
+      </div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[13].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[13].key]"></div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[14].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[14].key]"></div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[15].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[15].key]"></div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[16].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[16].key]"></div>
+    </div>
+
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+      <div [textContent]="columnHeaderDetails[17].title"></div>
+    </div>
+    <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+      <div class="title" [textContent]="contentItem[columnHeaderDetails[17].key]"></div>
+    </div>
+
+    <div *ngIf="createTitle == 'Restore' " fxFlex="100" class="dis-contents">
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="heading">
+        <div [textContent]="columnHeaderDetails[18].title"></div>
+      </div>
+      <div fxFlex.gt-sm="75" fxFlex.gt-xs="50" fxFlex="100" class="content">
+        <div></div>
+      </div>
+    </div>
+
+  </div>
+  <!--- End --->
+
+</mat-card>
